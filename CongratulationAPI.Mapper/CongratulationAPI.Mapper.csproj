@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CongratulationAPI.Contracts\CongratulationAPI.Contracts.csproj" />
+    <ProjectReference Include="..\CongratulationAPI.Domain\CongratulationAPI.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

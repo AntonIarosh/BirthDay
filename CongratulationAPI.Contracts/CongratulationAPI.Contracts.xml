@@ -1,0 +1,463 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CongratulationAPI.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:CongratulationAPI.Contracts.BirthDay.BirthDayDto">
+            <summary>
+            Модель представления сущности Дня рождения: BirthDay
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.BirthDay.BirthDayDto.Day">
+            <summary>
+            Клнкретный день даты Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.BirthDay.BirthDayDto.Month">
+            <summary>
+            Клнкретный месяц даты Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.BirthDay.BirthDayDto.IsPased">
+            <summary>
+            Флаг - прошёл ли День рождения сейчас или нет
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.BirthDay.BirthDayDto.Congratulations">
+            <summary>
+            Поздравления на этот День рождения 
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.BirthDay.BirthDayDto.Users">
+            <summary>
+            Пользователи у которых День рождения в этот день
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.BirthDay.BirthDayDtoAdd.Day">
+            <summary>
+            Клнкретный день даты Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.BirthDay.BirthDayDtoAdd.Month">
+            <summary>
+            Клнкретный месяц даты Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.BirthDay.BirthDayDtoAdd.IsPased">
+            <summary>
+            Флаг - прошёл ли День рождения сейчас или нет
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.BirthDay.BirthDayDtoUpdate.Day">
+            <summary>
+            Клнкретный день даты Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.BirthDay.BirthDayDtoUpdate.Month">
+            <summary>
+            Клнкретный месяц даты Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.BirthDay.BirthDayDtoUpdate.IsPased">
+            <summary>
+            Флаг - прошёл ли День рождения сейчас или нет
+            </summary>
+        </member>
+        <member name="T:CongratulationAPI.Contracts.Congratulation.CongratulationDtoAdd">
+            <summary>
+            Модель представляения сущности Поздравления: Congratulation
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDtoAdd.CongratulationText">
+            <summary>
+             Текст поздравления
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDtoAdd.BirthDayId">
+            <summary>
+            Идентификатор Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDtoAdd.UserId">
+            <summary>
+            Идентификатор пользователя которому предназначено это поздравление. 
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDtoAdd.FromUserId">
+            <summary>
+            Идентификатор пользователя который отправил поздравление. 
+            </summary>
+        </member>
+        <member name="T:CongratulationAPI.Contracts.Congratulation.CongratulationDto">
+            <summary>
+            Модель представляения сущности Поздравления: Congratulation
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDto.CongratulationText">
+            <summary>
+             Текст поздравления
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDto.BirthDayId">
+            <summary>
+            Идентификатор Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDto.ToUserName">
+            <summary>
+            Имя пользователя которому предназначено это поздравление. 
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDto.ToUserSecondName">
+            <summary>
+            Фамилия пользователя которому предназначено это поздравление. 
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDto.ToUserLastName">
+            <summary>
+            Отчество пользователя которому предназначено это поздравление. 
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDto.UserId">
+            <summary>
+            Идентификатор пользователя которому предназначено это поздравление. 
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDto.FromUser">
+            <summary>
+            Идентификатор Пользователя который отправил поздравление
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDto.FromUserName">
+            <summary>
+            Имя пользователя оставивший поздравляение
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDto.FromUserSecondName">
+            <summary>
+            Фамилия пользователя оставивший поздравляение
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDto.FromUserLastName">
+            <summary>
+            Отчество пользователя оставивший поздравляение
+            </summary>
+        </member>
+        <member name="T:CongratulationAPI.Contracts.Congratulation.CongratulationDtoUpdate">
+            <summary>
+            Модель представляения сущности Поздравления: Congratulation
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDtoUpdate.CongratulationText">
+            <summary>
+             Текст поздравления
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDtoUpdate.BirthDayId">
+            <summary>
+            Идентификатор Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDtoUpdate.UserId">
+            <summary>
+            Идентификатор пользователя которому предназначено это поздравление. 
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Congratulation.CongratulationDtoUpdate.FromUserId">
+            <summary>
+            Идентификатор пользователя который отправил поздравление. 
+            </summary>
+        </member>
+        <member name="T:CongratulationAPI.Contracts.DtoBase">
+            <summary>
+            Базовый класс DTO
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.DtoBase.Id">
+            <summary>
+            Идентификатор записи
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.DtoBase.CreationDate">
+            <summary>
+            Дата создания записи
+            </summary>
+        </member>
+        <member name="F:CongratulationAPI.Contracts.Enums.Gender.Male">
+            <summary>
+            Мужской
+            </summary>
+        </member>
+        <member name="F:CongratulationAPI.Contracts.Enums.Gender.Female">
+            <summary>
+            Женский
+            </summary>
+        </member>
+        <member name="F:CongratulationAPI.Contracts.Enums.UserStatus.Friend">
+            <summary>
+            Друг
+            </summary>
+        </member>
+        <member name="F:CongratulationAPI.Contracts.Enums.UserStatus.Family">
+            <summary>
+            Член семьи
+            </summary>
+        </member>
+        <member name="F:CongratulationAPI.Contracts.Enums.UserStatus.Employee">
+            <summary>
+            Сотрудник/работник
+            </summary>
+        </member>
+        <member name="F:CongratulationAPI.Contracts.Enums.UserStatus.Classmate">
+            <summary>
+            Одноклассиник
+            </summary>
+        </member>
+        <member name="F:CongratulationAPI.Contracts.Enums.UserStatus.Student">
+            <summary>
+            Студент
+            </summary>
+        </member>
+        <member name="F:CongratulationAPI.Contracts.Enums.UserStatus.Employer">
+            <summary>
+            Работодатель
+            </summary>
+        </member>
+        <member name="F:CongratulationAPI.Contracts.Enums.UserStatus.Relative">
+            <summary>
+            Родственник
+            </summary>
+        </member>
+        <member name="F:CongratulationAPI.Contracts.Enums.UserStatus.Club_member">
+            <summary>
+            Участник клуба
+            </summary>
+        </member>
+        <member name="F:CongratulationAPI.Contracts.Enums.UserStatus.Undefined">
+            <summary>
+            Неопределённый статус
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDto.UserStatusName">
+            <summary>
+            Статус пользователя название
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDto.UserStatusId">
+            <summary>
+            Статус пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDto.FromUserId">
+            <summary>
+            Идентификатор пользователя который добавляет в знакомых
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDto.FromUserName">
+            <summary>
+            Пользователь который добавляет в знакомых
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDto.FromUserSecondName">
+            <summary>
+            Пользователь который добавляет в знакомых
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDto.FromUserLastName">
+            <summary>
+            Пользователь который добавляет в знакомых
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDto.KnowUserId">
+            <summary>
+            Идентификатор пользователя занкомого
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDto.KnowUserName">
+            <summary>
+            Имя пользователя знакомогу
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDto.KnowUserSecondName">
+            <summary>
+            Фамилия пользователя знакомогу
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDto.KnowUserLastName">
+            <summary>
+            Отчество пользователя знакомогу
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDtoAdd.UserStatusId">
+            <summary>
+            Статус пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDtoAdd.FromUserId">
+            <summary>
+            Идентификатор пользователя который добавляет в знакомых
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDtoAdd.KnowUserId">
+            <summary>
+            Идентификатор пользователя занкомого
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDtoUpdate.UserStatusId">
+            <summary>
+            Статус пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDtoUpdate.FromUserId">
+            <summary>
+            Идентификатор пользователя который добавляет в знакомых
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.Know.KnowDtoUpdate.KnowUserId">
+            <summary>
+            Идентификатор пользователя занкомого
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDto.Gender">
+            <summary>
+            Пол пользователя. 
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDto.Name">
+            <summary>
+            Имя пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDto.SecondName">
+            <summary>
+            Фамилия пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDto.LastName">
+            <summary>
+            Отчество пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDto.Date">
+            <summary>
+            Дата Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDto.Email">
+            <summary>
+            Электронная почта пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDto.Password">
+            <summary>
+            Пароль для входа в систему
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDto.BirthDay">
+            <summary>
+            День рождения пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDto.BirthDayId">
+            <summary>
+            Идентификатор Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDto.Congratulations">
+            <summary>
+            Поздравляения пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDto.Knows">
+            <summary>
+            Знакомые пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDto.KnowsToMe">
+            <summary>
+            Пользователи у которых я знакомый
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoAdd.Gender">
+            <summary>
+            Пол пользователя. 
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoAdd.Name">
+            <summary>
+            Имя пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoAdd.SecondName">
+            <summary>
+            Фамилия пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoAdd.LastName">
+            <summary>
+            Отчество пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoAdd.Date">
+            <summary>
+            Дата Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoAdd.Email">
+            <summary>
+            Электронная почта пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoAdd.Password">
+            <summary>
+            Пароль для входа в систему
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoAdd.BirthDayId">
+            <summary>
+            Идентификатор Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoUpdate.Gender">
+            <summary>
+            Пол пользователя. 
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoUpdate.Name">
+            <summary>
+            Имя пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoUpdate.SecondName">
+            <summary>
+            Фамилия пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoUpdate.LastName">
+            <summary>
+            Отчество пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoUpdate.Date">
+            <summary>
+            Дата Дня рождения
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoUpdate.Email">
+            <summary>
+            Электронная почта пользователя
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoUpdate.Password">
+            <summary>
+            Пароль для входа в систему
+            </summary>
+        </member>
+        <member name="P:CongratulationAPI.Contracts.User.UserDtoUpdate.BirthDayId">
+            <summary>
+            Идентификатор Дня рождения
+            </summary>
+        </member>
+    </members>
+</doc>

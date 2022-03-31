@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CongratulationAPI</name>
+    </assembly>
+    <members>
+        <member name="T:Congratulation.Controllers.BirthDayController">
+            <summary>
+            Контроллер обрабатывающий сущность Дня рождения 
+            </summary>
+        </member>
+        <member name="M:Congratulation.Controllers.BirthDayController.#ctor(Microsoft.Extensions.Logging.ILogger{Congratulation.Controllers.BirthDayController},CongratulationAPI.AppServices.Services.IBirthDayService)">
+            <summary>
+            Конструктор с инициализацие поля логирования
+            </summary>
+            <param name="logger"> реализация интерфейса логирования </param>
+        </member>
+        <member name="M:Congratulation.Controllers.BirthDayController.Get">
+            <summary>
+            Получить всех Дней рождений
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Congratulation.Controllers.BirthDayController.Add(CongratulationAPI.Contracts.BirthDay.BirthDayDtoAdd)">
+            <summary>
+            Добавление нового Дня рождения
+            </summary>
+            <param name="model"> модель сущности Дня рождения</param>
+            <returns> код ответа 201</returns>
+        </member>
+        <member name="M:Congratulation.Controllers.BirthDayController.Update(CongratulationAPI.Contracts.BirthDay.BirthDayDtoUpdate)">
+            <summary>
+            Обновление данных Дня рождения
+            </summary>
+            <param name="model"> модель сущности Дня рождения </param>
+            <returns>код ответа 200</returns>
+        </member>
+        <member name="M:Congratulation.Controllers.BirthDayController.Delete(System.Guid)">
+            <summary>
+            Удаление Дня рождения
+            </summary>
+            <param name="id"> Идентификатор Дня рождения</param>
+            <returns> код ответа 200</returns>
+        </member>
+        <member name="T:Congratulation.Controllers.CongratulationController">
+            <summary>
+            Контроллер обрабатывающий сущность Поздравления
+            </summary>
+        </member>
+        <member name="M:Congratulation.Controllers.CongratulationController.#ctor(Microsoft.Extensions.Logging.ILogger{Congratulation.Controllers.CongratulationController},CongratulationAPI.AppServices.Services.ICongratulationService)">
+            <summary>
+            Конструктор с инициализацие поля логирования
+            </summary>
+            <param name="logger"> реализация интерфейса логирования </param>
+        </member>
+        <member name="M:Congratulation.Controllers.CongratulationController.Get">
+            <summary>
+            Получить всех Поздравлений
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Congratulation.Controllers.CongratulationController.Add(CongratulationAPI.Contracts.Congratulation.CongratulationDtoAdd)">
+            <summary>
+            Добавление нового Поздравления
+            </summary>
+            <param name="model"> модель сущности Поздравления</param>
+            <returns> код ответа 201</returns>
+        </member>
+        <member name="M:Congratulation.Controllers.CongratulationController.Update(CongratulationAPI.Contracts.Congratulation.CongratulationDtoUpdate)">
+            <summary>
+            Обновление данных Поздравления
+            </summary>
+            <param name="model"> модель сущности Поздравления </param>
+            <returns>код ответа 200</returns>
+        </member>
+        <member name="M:Congratulation.Controllers.CongratulationController.Delete(System.Guid)">
+            <summary>
+            Удаление Поздравления
+            </summary>
+            <param name="id"> Идентификатор Поздравления</param>
+            <returns> код ответа 200</returns>
+        </member>
+        <member name="T:Congratulation.Controllers.KnowController">
+            <summary>
+            Контроллер обрабатывающий сущность Знакомых
+            </summary>
+        </member>
+        <member name="M:Congratulation.Controllers.KnowController.#ctor(Microsoft.Extensions.Logging.ILogger{Congratulation.Controllers.KnowController},CongratulationAPI.AppServices.Services.IKnowService)">
+            <summary>
+            Конструктор с инициализацие поля логирования
+            </summary>
+            <param name="logger"> реализация интерфейса логирования </param>
+        </member>
+        <member name="M:Congratulation.Controllers.KnowController.Get">
+            <summary>
+            Получить всех Знкомых
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Congratulation.Controllers.KnowController.Add(CongratulationAPI.Contracts.Know.KnowDtoAdd)">
+            <summary>
+            Добавление нового Знакомого
+            </summary>
+            <param name="model"> модель сущности Знакомого</param>
+            <returns> код ответа 201</returns>
+        </member>
+        <member name="M:Congratulation.Controllers.KnowController.Update(CongratulationAPI.Contracts.Know.KnowDtoUpdate)">
+            <summary>
+            Обновление данных Знакомого
+            </summary>
+            <param name="model"> модель сущности Знакомого </param>
+            <returns>код ответа 200</returns>
+        </member>
+        <member name="M:Congratulation.Controllers.KnowController.Delete(System.Guid)">
+            <summary>
+            Удаление Знакомого
+            </summary>
+            <param name="id"> Идентификатор Знакомого</param>
+            <returns> код ответа 200</returns>
+        </member>
+        <member name="T:Congratulation.Controllers.UserController">
+            <summary>
+            Контроллер обрабатывающий сущность Пользователя
+            </summary>
+        </member>
+        <member name="M:Congratulation.Controllers.UserController.#ctor(Microsoft.Extensions.Logging.ILogger{Congratulation.Controllers.UserController},CongratulationAPI.AppServices.Services.IUserService)">
+            <summary>
+            Конструктор с инициализацие поля логирования
+            </summary>
+            <param name="logger"> реализация интерфейса логирования </param>
+        </member>
+        <member name="M:Congratulation.Controllers.UserController.Get">
+            <summary>
+            Получить всех Пользователей
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Congratulation.Controllers.UserController.Add(CongratulationAPI.Contracts.User.UserDtoAdd)">
+            <summary>
+            Добавление нового Пользователя
+            </summary>
+            <param name="model"> модель сущности Пользователяя</param>
+            <returns> код ответа 201</returns>
+        </member>
+        <member name="M:Congratulation.Controllers.UserController.Update(CongratulationAPI.Contracts.User.UserDtoUpdate)">
+            <summary>
+            Обновление данных Пользователя
+            </summary>
+            <param name="model"> модель сущности Пользователя </param>
+            <returns>код ответа 200</returns>
+        </member>
+        <member name="M:Congratulation.Controllers.UserController.Delete(System.Guid)">
+            <summary>
+            Удаление Пользователя
+            </summary>
+            <param name="id"> Идентификатор Пользователя</param>
+            <returns> код ответа 200</returns>
+        </member>
+    </members>
+</doc>
