@@ -3,6 +3,7 @@ using CongratulationAPI.Contracts.BirthDay;
 using CongratulationAPI.Contracts.Know;
 using CongratulationAPI.Domain.Entities;
 using CongratulationAPI.Infrastructure.Repository;
+using CongratulationAPI.Infrastructure.Repositoryes.KnowRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,13 +17,16 @@ namespace CongratulationAPI.AppServices.Services
     /// </summary>
     public class KnowService : IKnowService
     {
-        private readonly IRepository<Know> _knowRepository;
+        private readonly IRepository<Know> _repository;
+        private readonly IKnowRepository _knowRepository;
         private readonly IMapper _mapper;
 
-        public KnowService(IRepository<Know> knowRepository, IMapper mapper)
+        public KnowService(IRepository<Know> repository, IMapper mapper, IKnowRepository knowRepository)
         {
-            _knowRepository = knowRepository;
+            _repository = repository;
             _mapper = mapper;
+            _knowRepository = knowRepository;
+
         }
 
         /// <inheritdoc />
@@ -30,28 +34,25 @@ namespace CongratulationAPI.AppServices.Services
         {
             var know = _mapper.Map<Know>(model);
             know.CreationDate = DateTime.UtcNow;
-            return _knowRepository.AddAsync(know);
+            return _repository.AddAsync(know);
         }
 
         /// <inheritdoc />
         public async Task DeleteAsync(Guid id)
         {
-            var know = await _knowRepository.GetByIdAsync(id);
+            var know = await _repository.GetByIdAsync(id);
             if(know == null)
             {
                 throw new Exception($"Не найден День рождения с id: {id}");
             }
-            await _knowRepository.DeleteAsync(know);
+            await _repository.DeleteAsync(know);
         }
 
         /// <inheritdoc />
         public async Task<List<KnowDto>> GetAllKnows()
         {
-            var result = await _knowRepository.GetAll()
-                .Include(obj=>obj.FromUser)
-                .Include(obj => obj.KnowUser)
-                .ToListAsync();
-            if(result.Count > 0)
+            List<Know> result = await _knowRepository.GetAllKnowsWithUsersСonnectedFromBothSides();
+            if (result.Count > 0)
             {
                 return _mapper.Map<List<KnowDto>>(result);
             }
@@ -62,7 +63,7 @@ namespace CongratulationAPI.AppServices.Services
         public async Task<KnowDto> Update(KnowDtoUpdate model)
         {
             var know = _mapper.Map<Know>(model);
-            await _knowRepository.UpdateAsync(know);
+            await _repository.UpdateAsync(know);
             return _mapper.Map<KnowDto>(know);
         }
     }

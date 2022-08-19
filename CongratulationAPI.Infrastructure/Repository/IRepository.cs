@@ -42,13 +42,6 @@ namespace CongratulationAPI.Infrastructure.Repository
         Task AddAsync(TEntity model);
 
         /// <summary>
-        /// Добавление новой записи сущности в БД и возвращает идентификатор
-        /// </summary>
-        /// <param name="model"> Данные добавляемой сущности</param>
-        /// /// <returns> Идентификатор добавленной сущности</returns>
-       // Guid AddAsyncAndReturnId(TEntity model);
-
-        /// <summary>
         /// ДОбновление записи сущности в БД
         /// </summary>
         /// <param name="model"> Данные обновляемой сущности</param>

@@ -21,6 +21,14 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Congratulation.Controllers.BirthDayController.GetByDayAndMonth(System.Int32,System.Int32)">
+            <summary>
+            Получить Дни Рождения на текущую дату
+            </summary>
+            <param name="day"> дата дня рождения</param>
+            <param name="month"> месяц рождения </param>
+            <returns>список Дней Рождения на сегодня</returns>
+        </member>
         <member name="M:Congratulation.Controllers.BirthDayController.Add(CongratulationAPI.Contracts.BirthDay.BirthDayDtoAdd)">
             <summary>
             Добавление нового Дня рождения
@@ -93,7 +101,7 @@
         </member>
         <member name="M:Congratulation.Controllers.KnowController.Get">
             <summary>
-            Получить всех Знкомых
+            Получить всех Знакомых
             </summary>
             <returns></returns>
         </member>
@@ -133,6 +141,29 @@
             <summary>
             Получить всех Пользователей
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Congratulation.Controllers.UserController.UsersBetweenDays(System.Int32)">
+            <summary>
+            Получить всех Пользователей дни рождения которых, находярся в промежутке указанных дней
+            </summary>
+            <param name="days"> Дни для диапазона</param>
+            <returns></returns>
+        </member>
+        <member name="M:Congratulation.Controllers.UserController.UsersByFIO(System.String,System.String,System.String)">
+            <summary>
+            Получить всех Пользователей по их ФИО
+            </summary>
+            <param name="name"> Имя для поиска</param>
+            <param name="secondName"> Фамилия для поиска</param>
+            <param name="lastName"> Отчество для поиска</param>
+            <returns></returns>
+        </member>
+        <member name="M:Congratulation.Controllers.UserController.UsersByEmail(System.String)">
+            <summary>
+            Получить всех Пользователей по их Эмейлу
+            </summary>
+            <param name="email"> Эмейл для поиска</param>
             <returns></returns>
         </member>
         <member name="M:Congratulation.Controllers.UserController.Add(CongratulationAPI.Contracts.User.UserDtoAdd)">

@@ -29,7 +29,7 @@ namespace Congratulation.Controllers
         }
 
         /// <summary>
-        /// Получить всех Знкомых
+        /// Получить всех Знакомых
         /// </summary>
         /// <returns></returns>
         [HttpGet]

@@ -2,6 +2,7 @@
 using CongratulationAPI.Contracts.Congratulation;
 using CongratulationAPI.Domain.Entities;
 using CongratulationAPI.Infrastructure.Repository;
+using CongratulationAPI.Infrastructure.Repositoryes.CongratulationRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,13 +16,15 @@ namespace CongratulationAPI.AppServices.Services
     /// </summary>
     public class CongratulationService : ICongratulationService
     {
-        private readonly IRepository<Congratulation> _congratulationRepository;
+        private readonly IRepository<Congratulation> _repository;
+        private readonly ICongratulationRepository _congratulationRepository;
         private readonly IMapper _mapper;
 
-        public CongratulationService(IRepository<Congratulation> congratulationRepository, IMapper mapper)
+        public CongratulationService(IRepository<Congratulation> repository, IMapper mapper, ICongratulationRepository congratulationRepository)
         {
-            _congratulationRepository = congratulationRepository;
+            _repository = repository;
             _mapper = mapper;
+            _congratulationRepository = congratulationRepository;
         }
 
         /// <inheritdoc />
@@ -29,28 +32,24 @@ namespace CongratulationAPI.AppServices.Services
         {
             var congratulation = _mapper.Map<Congratulation>(model);
             congratulation.CreationDate = DateTime.UtcNow;
-            return _congratulationRepository.AddAsync(congratulation);
+            return _repository.AddAsync(congratulation);
         }
 
         /// <inheritdoc />
         public async Task DeleteAsync(Guid id)
         {
-            var congratulation = await _congratulationRepository.GetByIdAsync(id);
+            var congratulation = await _repository.GetByIdAsync(id);
             if(congratulation == null)
             {
                 throw new Exception($"Не найден День рождения с id: {id}");
             }
-            await _congratulationRepository.DeleteAsync(congratulation);
+            await _repository.DeleteAsync(congratulation);
         }
 
         /// <inheritdoc />
         public async Task<List<CongratulationDto>> GetAllCongratulations()
         {
-            var result = await _congratulationRepository.GetAll()
-                .Include(obj=>obj.User)
-                .Include(obj => obj.FromUser)
-                .Include(obj => obj.BirthDay)
-                .ToListAsync();
+            var result = await _congratulationRepository.GetAllCongratulationsWithUsersFromUsersAndBirthDays();
             if(result.Count > 0)
             {
                 return _mapper.Map<List<CongratulationDto>>(result);
@@ -62,7 +61,7 @@ namespace CongratulationAPI.AppServices.Services
         public async Task<CongratulationDto> Update(CongratulationDtoUpdate model)
         {
             var congratulation = _mapper.Map<Congratulation>(model);
-            await _congratulationRepository.UpdateAsync(congratulation);
+            await _repository.UpdateAsync(congratulation);
             return _mapper.Map<CongratulationDto>(congratulation);
         }
     }

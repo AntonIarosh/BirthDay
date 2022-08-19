@@ -2,6 +2,7 @@
 using CongratulationAPI.Contracts.BirthDay;
 using CongratulationAPI.Domain.Entities;
 using CongratulationAPI.Infrastructure.Repository;
+using CongratulationAPI.Infrastructure.Repositoryes.BirthDayRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,13 +16,15 @@ namespace CongratulationAPI.AppServices.Services
     /// </summary>
     public class BirthDayService : IBirthDayService
     {
-        private readonly IRepository<BirthDay> _birthDayRepository;
+        private readonly IRepository<BirthDay> _repository;
+        private readonly IBirthDayRepository _birthDayRepository;
         private readonly IMapper _mapper;
 
-        public BirthDayService(IRepository<BirthDay> birthDayRepository, IMapper mapper)
+        public BirthDayService(IRepository<BirthDay> repository, IMapper mapper, IBirthDayRepository birthDayRepository)
         {
-            _birthDayRepository = birthDayRepository;
+            _repository = repository;
             _mapper = mapper;
+            _birthDayRepository = birthDayRepository;
         }
 
         /// <inheritdoc />
@@ -29,26 +32,24 @@ namespace CongratulationAPI.AppServices.Services
         {
             var birthDay = _mapper.Map<BirthDay>(model);
             birthDay.CreationDate = DateTime.UtcNow;
-            return _birthDayRepository.AddAsync(birthDay);
+            return _repository.AddAsync(birthDay);
         }
 
         /// <inheritdoc />
         public async Task DeleteAsync(Guid id)
         {
-            var birthDay = await _birthDayRepository.GetByIdAsync(id);
+            var birthDay = await _repository.GetByIdAsync(id);
             if(birthDay == null)
             {
                 throw new Exception($"Не найден День рождения с id: {id}");
             }
-            await _birthDayRepository.DeleteAsync(birthDay);
+            await _repository.DeleteAsync(birthDay);
         }
 
         /// <inheritdoc />
         public async Task<List<BirthDayDto>> GetAllBirthDays()
         {
-            var result = await _birthDayRepository.GetAll()
-                .Include(obj=>obj.Congratulations)
-                .ToListAsync();
+            var result = await _birthDayRepository.GetAllBirthDaysWithCongratulations();
             if(result.Count > 0)
             {
                 return _mapper.Map<List<BirthDayDto>>(result);
@@ -57,10 +58,22 @@ namespace CongratulationAPI.AppServices.Services
         }
 
         /// <inheritdoc />
+        public async Task<List<BirthDayDto>> GetByDayAndMonth(int day, int month)
+        {
+            var result = await _birthDayRepository.FindByDayAndMonthAsync(day, month);
+            if (result != null)
+            {
+                return _mapper.Map<List<BirthDayDto>>(result);
+            }
+            return new List<BirthDayDto>();
+
+        }
+
+        /// <inheritdoc />
         public async Task<BirthDayDto> Update(BirthDayDtoUpdate model)
         {
             var birthDay = _mapper.Map<BirthDay>(model);
-            await _birthDayRepository.UpdateAsync(birthDay);
+            await _repository.UpdateAsync(birthDay);
             return _mapper.Map<BirthDayDto>(birthDay);
         }
     }

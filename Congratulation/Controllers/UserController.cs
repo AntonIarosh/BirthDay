@@ -44,6 +44,47 @@ namespace Congratulation.Controllers
         }
 
         /// <summary>
+        /// Получить всех Пользователей дни рождения которых, находярся в промежутке указанных дней
+        /// </summary>
+        /// <param name="days"> Дни для диапазона</param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> UsersBetweenDays([FromQuery] int days)
+        {
+            var result = await _userService.GetUsersBetweenDays(days);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Получить всех Пользователей по их ФИО
+        /// </summary>
+        /// <param name="name"> Имя для поиска</param>
+        /// <param name="secondName"> Фамилия для поиска</param>
+        /// <param name="lastName"> Отчество для поиска</param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> UsersByFIO([FromQuery] string name, string secondName, string lastName)
+        {
+            var result = await _userService.GetUsersByFIO(name, secondName, lastName);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Получить всех Пользователей по их Эмейлу
+        /// </summary>
+        /// <param name="email"> Эмейл для поиска</param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> UsersByEmail([FromQuery] string email)
+        {
+            var result = await _userService.GetUsersByEmail(email);
+            return Ok(result);
+        }
+
+        /// <summary>
         /// Добавление нового Пользователя
         /// </summary>
         /// <param name="model"> модель сущности Пользователяя</param>

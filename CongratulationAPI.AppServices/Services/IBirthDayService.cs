@@ -17,6 +17,12 @@ namespace CongratulationAPI.AppServices.Services
         Task<List<BirthDayDto>> GetAllBirthDays();
 
         /// <summary>
+        /// Получить День Рождения по конкретному дню и месяцу рождения
+        /// </summary>
+        /// <returns> ДТО дня рождения</returns>
+        Task<List<BirthDayDto>> GetByDayAndMonth(int day, int month);
+
+        /// <summary>
         /// Добавление в БД новую запись о Дне рождения
         /// </summary>
         /// <param name="model">Модель сущности BirthDay</param>

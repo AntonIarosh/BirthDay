@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.14" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
@@ -24,6 +25,10 @@
     <ProjectReference Include="..\CongratulationAPI.Domain\CongratulationAPI.Domain.csproj" />
     <ProjectReference Include="..\CongratulationAPI.Infrastructure\CongratulationAPI.Infrastructure.csproj" />
     <ProjectReference Include="..\CongratulationAPI.Mapper\CongratulationAPI.Mapper.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Files\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties libman_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

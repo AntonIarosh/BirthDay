@@ -18,6 +18,30 @@ namespace CongratulationAPI.AppServices.Services
         Task<List<UserDto>> GetAllUsers();
 
         /// <summary>
+        /// Получение списка всех пользователей в диапазоне дат 
+        /// </summary>
+        /// <param name="days">Дни промежутка</param>
+        /// <returns> Список сущностей User</returns>
+        Task<List<UserDto>> GetUsersBetweenDays(int days);
+
+        /// <summary>
+        /// Получение списка всех пользователей  по ФИО
+        /// </summary>
+        /// <param name="name">Имя для поиска</param>
+        /// <param name="secondName">Фамилия для поиска</param>
+        /// <param name="lastName">Отчество для поиска</param>
+        /// <returns> Список сущностей User</returns>
+        Task<List<UserDto>> GetUsersByFIO(string name, string secondName, string lastName);
+
+        /// <summary>
+        /// Получение списка всех пользователей по их эмейлу
+        /// </summary>
+        /// <param name="email">Эмейл для поиска</param>
+        /// <returns> Список сущностей User</returns>
+        Task<List<UserDto>> GetUsersByEmail(string email);
+
+
+        /// <summary>
         /// Добавление в БД новую запись о пользователе
         /// </summary>
         /// <param name="model">Модель сущности User</param>

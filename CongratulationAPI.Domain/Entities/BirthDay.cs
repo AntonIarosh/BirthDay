@@ -34,5 +34,7 @@ namespace CongratulationAPI.Domain.Entities
         /// Пользователи у которых День рождения в этот день
         /// </summary>
         public virtual ICollection<User> Users { get; set; }
+
+
     }
 }

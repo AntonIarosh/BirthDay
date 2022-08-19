@@ -40,6 +40,20 @@ namespace Congratulation.Controllers
         }
 
         /// <summary>
+        /// Получить Дни Рождения на текущую дату
+        /// </summary>
+        /// <param name="day"> дата дня рождения</param>
+        /// <param name="month"> месяц рождения </param>
+        /// <returns>список Дней Рождения на сегодня</returns>
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> GetByDayAndMonth([FromQuery] int day, [FromQuery] int month)
+        {
+            var result = await _birthDayService.GetByDayAndMonth(day, month);
+            return Ok(result);
+        }
+
+        /// <summary>
         /// Добавление нового Дня рождения
         /// </summary>
         /// <param name="model"> модель сущности Дня рождения</param>
@@ -78,5 +92,6 @@ namespace Congratulation.Controllers
             await _birthDayService.DeleteAsync(id);
             return Ok();
         }
+
     }
 }

@@ -2,6 +2,10 @@ using CongratulationAPI.AppServices.Services;
 using CongratulationAPI.DataAccess;
 using CongratulationAPI.Domain.Validation;
 using CongratulationAPI.Infrastructure.Repository;
+using CongratulationAPI.Infrastructure.Repositoryes.BirthDayRepository;
+using CongratulationAPI.Infrastructure.Repositoryes.CongratulationRepository;
+using CongratulationAPI.Infrastructure.Repositoryes.KnowRepository;
+using CongratulationAPI.Infrastructure.Repositoryes.UserRepository;
 using CongratulationAPI.Mapper.Mapping;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
@@ -37,13 +41,24 @@ namespace CongratulationAPI
         {
             
             services.AddTransient<IBirthDayValidation, BirthDayValidation>();
-
+            services.AddCors();
             services.AddDbContext<BaseDbContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("ApplicationConnection")));
             services.AddScoped<DbContext>(service=>service.GetRequiredService<BaseDbContext>());
             services.AddControllers();
             services.AddMvc().AddFluentValidation();
             services.AddAutoMapper(typeof(ApplicationMapperProfile));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+            services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
+            services.AddScoped(typeof(IKnowRepository), typeof(KnowRepository));
+            services.AddScoped(typeof(IBirthDayRepository), typeof(BirthDayRepository));
+            services.AddScoped(typeof(ICongratulationRepository), typeof(CongratulationRepository));
+
+            /* services.AddTransient<IUserRepository, UserRepository>();
+             services.AddTransient<IBirthDayRepository, BirthDayRepository>();
+             services.AddTransient<IKnowRepository, KnowRepository>();
+             services.AddTransient<ICongratulationRepository, CongratulationRepository>();*/
+
             services.AddTransient<IBirthDayService, BirthDayService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IKnowService, KnowService>();
@@ -67,11 +82,16 @@ namespace CongratulationAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Congratulation v1"));
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCors(x => x
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .SetIsOriginAllowed(origin => true) // allow any origin
+              .AllowCredentials()); // allow credentials
 
             app.UseEndpoints(endpoints =>
             {
