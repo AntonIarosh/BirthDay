@@ -16,4 +16,4 @@ For SolarLab
 ### Работа с базой данных.
 Схема базы данных:
 
-![БД](https://github.com/AntonIarosh/BirthDay/db.png)
+![БД](https://github.com/AntonIarosh/BirthDay/blob/main/db.png)
